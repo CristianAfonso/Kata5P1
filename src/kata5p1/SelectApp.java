@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 
 public class SelectApp {
@@ -38,6 +39,16 @@ public class SelectApp {
                 System.out.println(e.getMessage());
         
         }  
-        
+    }
+    //Insertamos datos en nuestra tabla:
+    public void insert(int id, String email) throws SQLException{
+        String sql ="INSERT INTO eMAIL(mail) VALUES(?)";
+        try (Connection con = this.connect();
+                PreparedStatement pstmt = con.prepareStatement(sql)){
+                pstmt.setString(1,email);
+                pstmt.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
