@@ -35,6 +35,7 @@ public class Kata5P1 {
     }
     
     //Crear una tabla en la BD para la v3:
+    
     public static void createNewTable(){
         String url  =    "jdbc:sqlite:KATA5.db";
         String sql  =    "CREATE TABLE IF NOT EXISTS EMAIL (\n"
@@ -46,7 +47,8 @@ public class Kata5P1 {
             
         }catch(SQLException e){
             System.out.println(e.getMessage());
-        }
+        } 
+        
                 
     }
     
